@@ -1,11 +1,12 @@
 import { Request, Response } from "express"
-import { ListRolesUseCase } from "./listRolesUseCase"
+import { ListRolesUseCase } from "./listRoleUseCase"
 
 export class ListRolesController {
-  constructor(private listRolesUseCase: ListRolesUseCase) {}
+  constructor(private listRoleUseCase: ListRolesUseCase) {}
 
   handle(request: Request, response: Response): Response {
-    const roles = this.listRolesUseCase.execute()
+    const roles = this.listRoleUseCase.execute()
+
     return response.json(roles)
   }
 }
