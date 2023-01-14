@@ -1,4 +1,4 @@
-import { Role } from "@roles/entities/role"
+import { Role } from "@roles/entities/Role"
 
 type CreateRoleDTO = {
   name: string
@@ -6,17 +6,27 @@ type CreateRoleDTO = {
 
 export class RolesRepository {
   private roles: Role[]
+  private static INSTANCE: RolesRepository
 
-  constructor() {
+  private constructor() {
     this.roles = []
+  }
+
+  public static getInstance(): RolesRepository {
+    if (!RolesRepository.INSTANCE) {
+      RolesRepository.INSTANCE = new RolesRepository()
+    }
+    return RolesRepository.INSTANCE
   }
 
   create({ name }: CreateRoleDTO): Role {
     const role = new Role()
+    Object.assign(role, {
+      name,
+      created_at: new Date(),
+    })
 
-    Object.assign(role, { name, created_at: new Date() })
     this.roles.push(role)
-
     return role
   }
 
@@ -25,6 +35,7 @@ export class RolesRepository {
   }
 
   findByName(name: string): Role | undefined {
-    return this.roles.find(role => role.name === name)
+    const role = this.roles.find(role => role.name === name)
+    return role
   }
 }
