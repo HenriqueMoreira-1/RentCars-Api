@@ -1,5 +1,3 @@
-import { RolesRepository } from "@roles/repositories/rolesrepository"
-import { AppError } from "@shared/errors/AppError"
 import { Response, Request } from "express"
 import { CreateRoleUseCase } from "./createRoleUseCase"
 
