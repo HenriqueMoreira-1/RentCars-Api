@@ -1,6 +1,6 @@
 import { RolesRepository } from "@roles/repositories/rolesrepository"
-import { ListRolesUseCase } from "./listRoleUseCase"
-import { ListRolesController } from "./listRoleController"
+import { ListRolesUseCase } from "./listRolesUseCase"
+import { ListRolesController } from "./listRolesController"
 
 const rolesRepository = RolesRepository.getInstance()
 const listRolesUseCase = new ListRolesUseCase(rolesRepository)

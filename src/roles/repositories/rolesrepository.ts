@@ -47,16 +47,8 @@ export class RolesRepository {
     return this.repository.save(role)
   }
 
-  async findAll({
-    page,
-    skip,
-    take,
-  }: PaginateParams): Promise<RolesPaginateProperties> {
-    const [roles, count] = await this.repository
-      .createQueryBuilder()
-      .skip(skip)
-      .take(take)
-      .getManyAndCount()
+  async findAll({ page, skip, take }: PaginateParams): Promise<RolesPaginateProperties> {
+    const [roles, count] = await this.repository.createQueryBuilder().skip(skip).take(take).getManyAndCount()
 
     const result = {
       per_page: take,

@@ -7,4 +7,5 @@ export const dataSource = new DataSource({
   database: "./db.sqlite",
   entities: [Role],
   migrations: [CreateRolesTable1673793794633],
+  synchronize: true,
 })
