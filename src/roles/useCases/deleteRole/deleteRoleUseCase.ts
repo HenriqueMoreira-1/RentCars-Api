@@ -1,4 +1,3 @@
-import { Role } from "@roles/entities/role"
 import { RolesRepository } from "@roles/repositories/rolesrepository"
 import { AppError } from "@shared/errors/AppError"
 
