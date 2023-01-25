@@ -1,3 +1,4 @@
+import { Column } from "typeorm"
 import { CreateDateColumn } from "typeorm/decorator/columns/CreateDateColumn"
 import { PrimaryColumn } from "typeorm/decorator/columns/PrimaryColumn"
 import { Entity } from "typeorm/decorator/entity/Entity"
@@ -8,10 +9,10 @@ export class Category {
   @PrimaryColumn()
   id?: string
 
-  @PrimaryColumn()
+  @Column()
   name: string
 
-  @PrimaryColumn()
+  @Column()
   description: string
 
   @CreateDateColumn()
