@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction } from "express"
 import "express-async-errors"
 import swaggerUi from "swagger-ui-express"
+import "../typeOrm"
+import "../../shared/container"
 import cors from "cors"
 import { errors } from "celebrate"
 import { routes } from "./routes"
