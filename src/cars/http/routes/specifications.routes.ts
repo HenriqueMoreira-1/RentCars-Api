@@ -1,8 +1,7 @@
 import { Router } from "express"
-import { specificationsController } from "../../useCases/createSpecification"
+import { CreateSpecificationController } from "src/cars/useCases/createSpecification/CreateSpecificationController"
 
 export const specificationsRoutes = Router()
 
-specificationsRoutes.post("/", (request, response) => {
-  return specificationsController.handle(request, response)
-})
+const createSpecificationsController = new CreateSpecificationController()
+specificationsRoutes.post("/", createSpecificationsController.handle)
