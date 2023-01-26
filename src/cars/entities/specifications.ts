@@ -1,4 +1,4 @@
-import { CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
+import { CreateDateColumn, Entity, PrimaryColumn, Column } from "typeorm"
 import { v4 as uuidV4 } from "uuid"
 
 @Entity("specifications")
@@ -6,10 +6,10 @@ export class Specification {
   @PrimaryColumn()
   id?: string
 
-  @PrimaryColumn()
+  @Column()
   name: string
 
-  @PrimaryColumn()
+  @Column()
   description: string
 
   @CreateDateColumn()
