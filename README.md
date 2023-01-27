@@ -17,3 +17,13 @@ Nodejs API development with typescript
   * ID
   * name
   * created_at
+
+- Users
+  * ID
+  * name
+  * username
+  * email
+  * password
+  * isAdmin
+  * driver_license
+  * created_at
