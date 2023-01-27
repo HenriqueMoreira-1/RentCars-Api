@@ -18,6 +18,7 @@ export class UsersRepository implements IUsersRepository {
       name,
       password,
       username,
+      isAdmin: false,
     })
 
     await this.repository.save(user)

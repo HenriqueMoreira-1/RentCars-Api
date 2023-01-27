@@ -1,6 +1,7 @@
 import { Router } from "express"
-import { rolesRouter } from "@roles/http/routes/roles.routes"
-import { categoriesRoutes } from "src/cars/http/routes/categories.routes"
+import { rolesRouter } from "@shared/http/routes/roles.routes"
+import { categoriesRoutes } from "@shared/http/routes/categories.routes"
+import { usersRoutes } from "./users.routes"
 const routes = Router()
 
 routes.get("/", (request, response) => {
@@ -10,5 +11,5 @@ routes.get("/", (request, response) => {
 routes.use("/roles", rolesRouter)
 routes.use("/categories", categoriesRoutes)
 routes.use("/specifications", categoriesRoutes)
-
+routes.use("/users", usersRoutes)
 export { routes }

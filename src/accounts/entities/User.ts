@@ -1,4 +1,4 @@
-import { CreateDateColumn, Entity, PrimaryColumn, Column } from "typeorm"
+import { CreateDateColumn, PrimaryColumn, Column, Entity } from "typeorm"
 import { v4 as uuidv4 } from "uuid"
 
 @Entity("users")
@@ -22,10 +22,10 @@ export class User {
   driver_license: string
 
   @Column()
-  created_at: string
+  isAdmin: boolean
 
   @CreateDateColumn()
-  isAdmin: boolean
+  created_at: string
 
   constructor() {
     if (!this.id) {
