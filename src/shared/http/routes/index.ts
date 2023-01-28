@@ -2,6 +2,7 @@ import { Router } from "express"
 import { rolesRouter } from "@shared/http/routes/roles.routes"
 import { categoriesRoutes } from "@shared/http/routes/categories.routes"
 import { usersRoutes } from "./users.routes"
+import { authenticateRoutes } from "./authenticate.routes"
 const routes = Router()
 
 routes.get("/", (request, response) => {
@@ -12,4 +13,5 @@ routes.use("/roles", rolesRouter)
 routes.use("/categories", categoriesRoutes)
 routes.use("/specifications", categoriesRoutes)
 routes.use("/users", usersRoutes)
+routes.use(authenticateRoutes)
 export { routes }
