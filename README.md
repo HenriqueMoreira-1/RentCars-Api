@@ -6,13 +6,13 @@ Nodejs API development with typescript
   * name
   * description
   * created_at
- 
+
 - Specifications
   * ID
   * name
   * description
   * created_at
-  
+
 - Roles
   * ID
   * name
@@ -27,3 +27,4 @@ Nodejs API development with typescript
   * isAdmin
   * driver_license
   * created_at
+  * avatar
