@@ -2,8 +2,6 @@ import { container } from "tsyringe"
 import { UpdateUserAvatarUseCase } from "./updateUserAvatarUseCase"
 import { Request, Response } from "express"
 export class UpdateUserAvatarController {
-  constructor(private updateUserAvatarUseCase: UpdateUserAvatarUseCase) {}
-
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.user
     const avatar_file = request.file.filename

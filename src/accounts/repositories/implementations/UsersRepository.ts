@@ -11,13 +11,15 @@ export class UsersRepository implements IUsersRepository {
     this.repository = dataSource.getRepository(User)
   }
 
-  async create({ driver_license, email, name, password, username }: ICreateUserDTO): Promise<void> {
+  async create({ driver_license, email, name, password, username, avatar, id }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
       driver_license,
       email,
       name,
       password,
       username,
+      avatar,
+      id,
     })
 
     await this.repository.save(user)
@@ -30,6 +32,11 @@ export class UsersRepository implements IUsersRepository {
 
   async findById(id: string): Promise<User> {
     const user = await this.repository.findOneBy({ id })
+    return user
+  }
+
+  async findByUsername(username: string): Promise<User> {
+    const user = await this.repository.findOneBy({ username })
     return user
   }
 }
