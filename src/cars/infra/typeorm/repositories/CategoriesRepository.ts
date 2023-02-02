@@ -1,7 +1,7 @@
-import { Category } from "src/cars/entities/category"
-import { ICategoriesRepository, ICreateCategoryDTO } from "../ICategoriesRepository"
+import { Category } from "src/cars/infra/typeorm/entities/category"
+import { ICategoriesRepository, ICreateCategoryDTO } from "../../../repositories/ICategoriesRepository"
 import { Repository } from "typeorm"
-import { dataSource } from "@shared/typeOrm"
+import { dataSource } from "../../../../shared/infra/typeorm"
 export class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>
 

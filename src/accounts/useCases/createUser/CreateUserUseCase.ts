@@ -2,8 +2,7 @@ import { IUsersRepository } from "src/accounts/repositories/IUsersRepository"
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO"
 import { inject, injectable } from "tsyringe"
 import { hash } from "bcrypt"
-import { AppError } from "@shared/errors/AppError"
-
+import { AppError } from "../../../shared/errors/AppError"
 @injectable()
 export class CreateUserUseCase {
   constructor(

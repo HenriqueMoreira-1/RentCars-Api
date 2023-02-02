@@ -1,5 +1,5 @@
 import { Role } from "@roles/entities/role"
-import { dataSource } from "@shared/typeOrm"
+import { dataSource } from "../../shared/infra/typeorm"
 import { Repository } from "typeorm"
 
 type CreateRoleDTO = {
