@@ -9,11 +9,12 @@ import { User } from "src/accounts/infra/typeorm/entities/User"
 import { AlterUserAddAvatar1675113522881 } from "./migrations/1675113522881-AlterUserAddAvatar"
 import { CreateUsers1675180591964 } from "./migrations/1675180591964-CreateUsers"
 import { CreateCars1675335365090 } from "./migrations/1675335365090-CreateCars"
+import { Car } from "src/cars/infra/typeorm/entities/car"
 
 export const dataSource = new DataSource({
   type: "sqlite",
   database: "./db.sqlite",
-  entities: [Role, Category, Specification, User],
+  entities: [Role, Category, Specification, User, Car],
   migrations: [
     CreateRolesTable1673793794633,
     CreateCategory1674672942997,
