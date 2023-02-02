@@ -1,30 +1,5 @@
-# RentCars-Api
-Nodejs API development with typescript
-
-- Categories
-  * ID
-  * name
-  * description
-  * created_at
-
-- Specifications
-  * ID
-  * name
-  * description
-  * created_at
-
-- Roles
-  * ID
-  * name
-  * created_at
-
-- Users
-  * ID
-  * name
-  * username
-  * email
-  * password
-  * isAdmin
-  * driver_license
-  * created_at
-  * avatar
+TECNOLOGIAS UTILIZADAS: 
+  Criação de API Node.js com ExpressJS e Typescript
+  Acesso a banco de dados SQLite com TypeORM
+  Autenticação com token de acesso e refresh token (JWT)
+  Documentação de API REST com Swagger (Open API)
