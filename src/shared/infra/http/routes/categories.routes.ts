@@ -1,3 +1,4 @@
+import { createCategoryRouteValidation } from "@shared/infra/validation/categories"
 import { Router } from "express"
 import multer from "multer"
 import { CreateCategoryController } from "src/cars/useCases/createCategory/CreateCategoryController"
@@ -14,7 +15,7 @@ const createCategoryController = new CreateCategoryController()
 const importCategoryController = new ImportCategoryController()
 const listCategoriesController = new ListCategoriesController()
 
-categoriesRoutes.post("/", createCategoryController.handle)
+categoriesRoutes.post("/", createCategoryRouteValidation, createCategoryController.handle)
 categoriesRoutes.get("/", listCategoriesController.handle)
 categoriesRoutes.post("/import", upload.single("file"), importCategoryController.handle)
 
