@@ -1,35 +1,29 @@
-import { createRolesController } from "@roles/useCases/createRole"
-import { deleteRolesController } from "@roles/useCases/deleteRole"
-import { listRolesController } from "@roles/useCases/listRoles"
-import { showRolesController } from "@roles/useCases/showRole"
-import { updateRolesController } from "@roles/useCases/updateRole"
 import { Router } from "express"
 import { celebrate, Joi, Segments } from "celebrate"
+import { CreateRoleController } from "@roles/useCases/createRole/createRoleController"
+import { ListRolesController } from "@roles/useCases/listRoles/listRolesController"
+import { ShowRoleController } from "@roles/useCases/showRole/showRoleController"
+import { UpdateRoleController } from "@roles/useCases/updateRole/updateRoleController"
+import { DeleteRoleController } from "@roles/useCases/deleteRole/deleteRoleController"
 
-const rolesRouter = Router()
+export const rolesRouter = Router()
 
-rolesRouter.post("/", celebrate({ [Segments.BODY]: Joi.object().keys({ name: Joi.string().required() }) }), (request, response) => {
-  return createRolesController.handle(request, response)
-})
+const createRoleController = new CreateRoleController()
+const listRolesController = new ListRolesController()
+const showRolesController = new ShowRoleController()
+const updateRolesController = new UpdateRoleController()
+const deleteRolesController = new DeleteRoleController()
 
-rolesRouter.get("/", celebrate({ [Segments.QUERY]: Joi.object().keys({ page: Joi.number(), limit: Joi.number() }) }), (request, response) => {
-  return listRolesController.handle(request, response)
-})
+rolesRouter.post("/", celebrate({ [Segments.BODY]: Joi.object().keys({ name: Joi.string().required() }) }), createRoleController.handle)
 
-rolesRouter.get("/:id", celebrate({ [Segments.PARAMS]: Joi.object().keys({ id: Joi.string().uuid().required() }) }), (request, response) => {
-  return showRolesController.handle(request, response)
-})
+rolesRouter.get("/", celebrate({ [Segments.QUERY]: Joi.object().keys({ page: Joi.number(), limit: Joi.number() }) }), listRolesController.handle)
+
+rolesRouter.get("/:id", celebrate({ [Segments.PARAMS]: Joi.object().keys({ id: Joi.string().uuid().required() }) }), showRolesController.handle)
 
 rolesRouter.put(
   "/:id",
   celebrate({ [Segments.PARAMS]: Joi.object().keys({ id: Joi.string().uuid().required() }), [Segments.BODY]: Joi.object().keys({ name: Joi.string().required() }) }),
-  (request, response) => {
-    return updateRolesController.handle(request, response)
-  },
+  updateRolesController.handle,
 )
 
-rolesRouter.delete("/:id", celebrate({ [Segments.PARAMS]: Joi.object().keys({ id: Joi.string().uuid().required() }) }), (request, response) => {
-  return deleteRolesController.handle(request, response)
-})
-
-export { rolesRouter }
+rolesRouter.delete("/:id", celebrate({ [Segments.PARAMS]: Joi.object().keys({ id: Joi.string().uuid().required() }) }), deleteRolesController.handle)
