@@ -20,7 +20,7 @@ export const dataSource = new DataSource({
     CreateCategory1674672942997,
     CreateSpecification1674673739060,
     CreateUsers1675180591964,
-    // AlterUserAddAvatar1675113522881,
+    AlterUserAddAvatar1675113522881,
     CreateCars1675335365090,
   ],
   synchronize: true,
