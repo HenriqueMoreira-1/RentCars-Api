@@ -13,12 +13,11 @@ export class SpecificationsRepository implements ISpecificationsRepository {
     this.repository = dataSource.getRepository(Specification)
   }
 
-  async create({ name, description }: ICreateSpecificationDTO): Promise<Specification> {
+  async create({ description, name }: ICreateSpecificationDTO): Promise<Specification> {
     const specification = this.repository.create({
-      description,
       name,
+      description,
     })
-
     await this.repository.save(specification)
 
     return specification

@@ -7,10 +7,10 @@ import { Specification } from "src/cars/infra/typeorm/entities/specifications"
 import { CreateSpecification1674673739060 } from "./migrations/1674673739060-CreateSpecification"
 import { User } from "src/accounts/infra/typeorm/entities/User"
 import { AlterUserAddAvatar1675113522881 } from "./migrations/1675113522881-AlterUserAddAvatar"
-import { CreateUsers1675180591964 } from "./migrations/1675180591964-CreateUsers"
 import { CreateCars1675335365090 } from "./migrations/1675335365090-CreateCars"
 import { Car } from "src/cars/infra/typeorm/entities/car"
 import { CreateSpecificationsCars1675614968248 } from "./migrations/1675614968248-CreateSpecificationsCars"
+import { CreateUsers1675103039848 } from "./migrations/1675103039848-CreateUsers"
 
 export const dataSource = new DataSource({
   type: "sqlite",
@@ -20,8 +20,8 @@ export const dataSource = new DataSource({
     CreateRolesTable1673793794633,
     CreateCategory1674672942997,
     CreateSpecification1674673739060,
-    CreateUsers1675180591964,
-    // AlterUserAddAvatar1675113522881,
+    CreateUsers1675103039848,
+    AlterUserAddAvatar1675113522881,
     CreateCars1675335365090,
     CreateSpecificationsCars1675614968248,
   ],

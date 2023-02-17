@@ -11,7 +11,15 @@ export class UsersRepository implements IUsersRepository {
     this.repository = dataSource.getRepository(User)
   }
 
-  async create({ driver_license, email, name, password, username, avatar, id }: ICreateUserDTO): Promise<void> {
+  async create({
+    driver_license,
+    email,
+    name,
+    password,
+    username,
+    avatar,
+    id,
+  }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
       driver_license,
       email,

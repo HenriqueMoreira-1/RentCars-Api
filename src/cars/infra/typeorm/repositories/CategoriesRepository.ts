@@ -5,8 +5,6 @@ import { dataSource } from "../../../../shared/infra/typeorm"
 export class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>
 
-  private static INSTANCE: CategoriesRepository
-
   constructor() {
     this.repository = dataSource.getRepository(Category)
   }
