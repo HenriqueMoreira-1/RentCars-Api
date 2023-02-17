@@ -11,6 +11,7 @@ import { CreateCars1675335365090 } from "./migrations/1675335365090-CreateCars"
 import { Car } from "src/cars/infra/typeorm/entities/car"
 import { CreateSpecificationsCars1675614968248 } from "./migrations/1675614968248-CreateSpecificationsCars"
 import { CreateUsers1675103039848 } from "./migrations/1675103039848-CreateUsers"
+import { CreateCarImages1676643312316 } from "./migrations/1676643312316-CreateCarImages"
 
 export const dataSource = new DataSource({
   type: "sqlite",
@@ -24,6 +25,7 @@ export const dataSource = new DataSource({
     AlterUserAddAvatar1675113522881,
     CreateCars1675335365090,
     CreateSpecificationsCars1675614968248,
+    CreateCarImages1676643312316,
   ],
   synchronize: true,
 })
