@@ -10,9 +10,12 @@ import { ICarsRepository } from "src/cars/repositories/ICarsRepository"
 import { CarsRepository } from "../../cars/infra/typeorm/repositories/CarsRepository"
 import { IRolesRepository } from "@roles/repositories/IRolesRepository"
 import { RolesRepository } from "@roles/repositories/rolesrepository"
+import { carsImagesRepository } from "src/cars/infra/typeorm/repositories/CarsImagesRepository"
+import { ICarsImagesRepository } from "src/cars/repositories/ICarsImageRepository"
 
 container.registerSingleton<ICategoriesRepository>("CategoriesRepository", CategoriesRepository)
 container.registerSingleton<ISpecificationsRepository>("SpecificationsRepository", SpecificationsRepository)
 container.registerSingleton<IUsersRepository>("UsersRepository", UsersRepository)
 container.registerSingleton<ICarsRepository>("CarsRepository", CarsRepository)
 container.registerSingleton<IRolesRepository>("RolesRepository", RolesRepository)
+container.registerSingleton<ICarsImagesRepository>("CarsImagesRepository", carsImagesRepository)
