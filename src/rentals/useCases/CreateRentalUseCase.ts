@@ -2,7 +2,6 @@ import { IDateProvider } from "@shared/container/providers/DateProvider/IDatePro
 import { AppError } from "../../shared/errors/AppError"
 import { Rental } from "../infra/typeorm/entities/rental"
 import { IRentalsRepository } from "../repositories/IRentalsRepository"
-import dayjs from "dayjs"
 
 interface IRequest {
   user_id: string
