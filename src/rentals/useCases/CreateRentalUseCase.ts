@@ -2,6 +2,7 @@ import { IDateProvider } from "@shared/container/providers/DateProvider/IDatePro
 import { AppError } from "../../shared/errors/AppError"
 import { Rental } from "../infra/typeorm/entities/rental"
 import { IRentalsRepository } from "../repositories/IRentalsRepository"
+import { inject, injectable } from "tsyringe"
 
 interface IRequest {
   user_id: string
@@ -9,8 +10,14 @@ interface IRequest {
   expected_return_date: Date
 }
 
+@injectable()
 export class CreateRentalUseCase {
-  constructor(private rentalsRepository: IRentalsRepository, private dateProvider: IDateProvider) {}
+  constructor(
+    @inject("RentalsRepository")
+    private rentalsRepository: IRentalsRepository,
+    @inject("DayJsDateProvider")
+    private dateProvider: IDateProvider,
+  ) {}
 
   async execute({ car_id, expected_return_date, user_id }: IRequest): Promise<Rental> {
     const minimumAmountOfHours = 24
