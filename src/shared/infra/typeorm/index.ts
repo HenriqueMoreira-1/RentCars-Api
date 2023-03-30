@@ -15,7 +15,6 @@ import { CreateCarImages1676643312316 } from "./migrations/1676643312316-CreateC
 import { CreateRentals1676818631143 } from "./migrations/1676818631143-CreateRentals"
 import { FixCreateRentalsIsNullable1679188055505 } from "./migrations/1679188055505-FixCreateRentalsIsNullable"
 import { Rental } from "src/rentals/infra/typeorm/entities/rental"
-import { FixNotNullableCreateRentals1679192233887 } from "./migrations/1679192233887-FixNotNullableCreateRentals"
 
 export const dataSource = new DataSource({
   type: "sqlite",
