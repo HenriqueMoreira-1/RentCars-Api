@@ -2,8 +2,8 @@ import { Router } from "express"
 import { CreateRentalController } from "src/rentals/useCases/CreateRentalController"
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated"
 
-export const rentalRoutes = Router()
+export const rentalsRoutes = Router()
 
 const createRentalController = new CreateRentalController()
 
-rentalRoutes.post("/rentals", ensureAuthenticated, createRentalController.handle)
+rentalsRoutes.post("/", ensureAuthenticated, createRentalController.handle)
